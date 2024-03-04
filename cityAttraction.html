@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things To Do</title>
+    <!-- Add your stylesheet link here -->
+    <script src="thingstodojs.js"></script>
+
+		  <script src="https://cdn.tailwindcss.com"></script>
+	    <link href="styles.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header>
+        <img src="images/header.png" alt="Header Image" class="w-full">
+    </header>
+<nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="flex space-x-4">
+                    <!-- Navbar items -->
+                    <a href="index.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">HOME</a>
+                    <a href="restaurants.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">RESTAURANTS</a>
+                    <a href="#" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">WHERE TO GO</a>
+                    <a href="thingstodo.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">THINGS TO DO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation -->
+    <div class="bg-white p-6 rounded-md shadow-md text-center">
+        <h1 class="text-3xl font-bold mb-4">Location Finder</h1>
+        <button onclick="getLocation()" class="py-2 px-4 bg-green-500 text-white rounded-md shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+            Get My Location
+        </button>
+        <p id="location" class="mt-4 text-gray-700"></p>
+    </div>
+    <br>
+    <div class="flex flex-col items-center justify-center my-8">
+        <input type="text" id="cityInput" placeholder="Enter a city"
+            class="px-4 py-2 w-64 border rounded-md text-gray-700 focus:ring-blue-500 focus:border-blue-500" />
+        <button id="searchButton" onclick="searchRestaurants()"
+            class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200">Search</button>
+    </div>
+    
+ 
+
+
+    
+
+
+    <!-- Cities section -->
+      <section class="container mx-auto py-8 px-4">
+    <h2 class="text-3xl font-bold mb-4 text-center text-navy">Cities</h2>
+    <nav class="flex flex-wrap justify-center sm:space-x-6 lg:space-x-8">
+        <!-- Link to Haifa -->
+        <a href="#haifa" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Haifa
+        </a>
+        <!-- Link to Tel Aviv -->
+        <a href="#telaviv" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Tel Aviv
+        </a>
+        <!-- Link to Qiryat Shomna -->
+        <a href="#qiryatshomna" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Qiryat Shomna
+        </a>
+        <!-- Link to Eilat -->
+        <a href="#eilat" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Eilat
+        </a>
+        <!-- Link to Jerusalem -->
+        <a href="#jerusalem" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Jerusalem
+        </a>
+    </nav>
+</section>
+
+
+<button onclick="scrollToTop()" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-lg flex items-center justify-center bg-green-500 text-white hover:bg-green-600 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+    ↑
+</button>
+
+
+
+
+<div id="attractionsContainer" class="grid grid-cols-3 gap-4">
+    <!-- Dynamic content will be inserted here -->
+</div>
+
+
+    <!-- Main content, JavaScript functionality, etc. goes here -->
+<footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">About Us</h2>
+                <p>Discover the best of Israel with curated travel guides, tips, and insights.</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Quick Links</h2>
+                <ul>
+                    <li><a href="/explore" class="hover:text-blue-400">Explore</a></li>
+                    <li><a href="/restaurants" class="hover:text-blue-400">Restaurants</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Where to Go</a></li>
+                    <li><a href="/thingstodo" class="hover:text-blue-400">Things to Do</a></li>
+                </ul>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Contact Us</h2>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +972 123 4567</p>
+            </div>
+            <!-- Social Media Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Follow Us</h2>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400">Facebook</a>
+                    <a href="#" class="hover:text-blue-400">Instagram</a>
+                    <a href="#" class="hover:text-blue-400">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-700 text-center py-4">
+        <p>&copy; 2024 Travel Israel. All rights reserved.</p>
+    </div>
+</footer>
+    <!-- Script tag for JavaScript -->
+    <script src="attracationscard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+    <!-- Add your stylesheet link here -->
+    <script src="script.js"></script>
+   
+		  <script src="https://cdn.tailwindcss.com"></script>
+	    <link href="styles.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header>
+        <img src="images/header.png" alt="Header Image" class="w-full">
+    </header>
+<nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="flex space-x-4">
+                    <!-- Navbar items -->
+                    <a href="index.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">HOME</a>
+                    <a href="restaurants.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">RESTAURANTS</a>
+                    <a href="#" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">WHERE TO GO</a>
+                    <a href="thingstodo.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">THINGS TO DO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation -->
+     <div class="bg-white p-6 rounded-md shadow-md text-center">
+        
+</div>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=65d2942cbe3e8745956225aro865b60&libraries=places"></script>
+
+    <!-- Cities section -->
+      <section class="container mx-auto py-8 px-4">
+    
+</section>
+
+
+
+<button onclick="scrollToTop()" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-lg flex items-center justify-center bg-green-500 text-white hover:bg-green-600 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+    ↑
+</button>
+<h2  id="cityName" class="text-3xl font-bold mb-4 text-center"></h2>
+
+<div id="restaurantsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+
+
+
+    <!-- Restaurants section -->
+    
+    <!-- Main content, JavaScript functionality, etc. goes here -->
+
+    <!-- Script tag for JavaScript -->
+    <script src="resturantsHandler.js"></script>
+</body>
+</html>

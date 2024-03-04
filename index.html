@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link href="styles.css" rel="stylesheet">
+	  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100">
+     <header>
+
+        <img src="images/header.png" alt="Header Image" class="w-full">
+    </header>
+    <nav class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-center">
+            <div class="flex space-x-2 md:space-x-4">
+                <!-- Adjusted Navbar items for mobile visibility -->
+                <a href="index.html" class="text-sm md:text-lg font-medium text-gray-600 hover:text-green-500 py-2 md:py-4 px-1 md:px-2">HOME</a>
+                <a href="restaurants.html" class="text-sm md:text-lg font-medium text-gray-600 hover:text-green-500 py-2 md:py-4 px-1 md:px-2">RESTAURANTS</a>
+                <a href="#" class="text-sm md:text-lg font-medium text-gray-600 hover:text-green-500 py-2 md:py-4 px-1 md:px-2">WHERE TO GO</a>
+                <a href="thingstodo.html" class="text-sm md:text-lg font-medium text-gray-600 hover:text-green-500 py-2 md:py-4 px-1 md:px-2">THINGS TO DO</a>
+                <a href="events.html" class="text-sm md:text-lg font-medium text-gray-600 hover:text-green-500 py-2 md:py-4 px-1 md:px-2">EVENTS</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+	<!-- Full-Screen Styled HR -->
+
+
+	<div class="bg-gray-100 py-24 px-10 text-center">
+    <div class="md:w-3/4 mx-auto">
+        <p class="font-bold text-sm uppercase text-gray-800">Explore Israel</p>
+        <p class="text-3xl font-bold text-gray-800">Discover the Beauty of Israel</p>
+        <p class="text-2xl mb-10 leading-none text-gray-800">From historic Jerusalem to vibrant Tel Aviv, explore the unique landscapes and rich culture of Israel.</p>
+        <a href="thingstodo.html" class="bg-green-500 py-4 px-8 text-lg font-bold rounded-full text-white">Start Your Journey</a>
+    </div>
+</div>
+<!-- Full-Screen Styled HR -->
+<div class="container mx-auto px-4 py-8 text-center">
+    <hr class="border-b-2 border-gray-300 mx-0 w-full">
+</div>
+
+
+
+    <!-- Main content, JavaScript functionality, etc. goes here -->
+	<!-- now the next thing                                     -->
+	<div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative group">
+            <a href="/home">
+                <img src="images/popularplace.jpg" alt="Popular Places" class="w-full h-auto rounded-lg shadow-lg">
+                <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300">
+                    <h2 class="text-white font-semibold text-lg group-hover:text-xl">Popular Places</h2>
+                </div>
+            </a>
+        </div>
+        <div class="relative group">
+            <a href="restaurants.html">
+                <img src="images/restaurant15.png" alt="Restaurants" class="w-full h-auto rounded-lg shadow-lg">
+                <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300">
+                    <h2 class="text-white font-semibold text-lg group-hover:text-xl">Restaurants</h2>
+                </div>
+            </a>
+        </div>
+        <div class="relative group">
+            <a href="/things-to-do">
+                <img src="images/image-import.jpg" alt="Things to Do" class="w-full h-auto rounded-lg shadow-lg">
+                <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300">
+                    <h2 class="text-white font-semibold text-lg group-hover:text-xl">Where to Go</h2>
+                </div>
+            </a>
+        </div>
+        <div class="relative group">
+            <a href="thingstodo.html">
+                <img src="images/thingstodo.jpg" alt="Where to Go" class="w-full h-auto rounded-lg shadow-lg">
+                <div class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300">
+                    <h2 class="text-white font-semibold text-lg group-hover:text-xl">Things to Do</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- start weather system 
+<h2 class="text-2xl font-bold mb-4 text-center text-navy">Weather Forecast for Israeli Cities</h2>
+
+<div class="weather-container flex flex-wrap justify-around mt-8">
+    <div class="city text-center mb-8 sm:w-1/2 lg:w-auto">
+        <h3 class="text-lg font-semibold mb-2">1. Haifa</h3>
+        <p class="temperature text-xl mb-2 text-gray-700"></p>
+        <p class="weather-condition text-gray-500"></p>
+        <img src="images/cloudy.png" class="weather-icon w-16 h-16" alt="Weather Icon">
+    </div>
+    <div class="city text-center mb-8 sm:w-1/2 lg:w-auto">
+        <h3 class="text-lg font-semibold mb-2">2. Tel Aviv</h3>
+        <p class="temperature text-xl mb-2 text-gray-700"></p>
+        <p class="weather-condition text-gray-500"></p>
+        <img src="images/cloudy.png" class="weather-icon w-16 h-16" alt="Weather Icon">
+    </div>
+    <div class="city text-center mb-8 sm:w-1/2 lg:w-auto">
+        <h3 class="text-lg font-semibold mb-2">3. Qiryat Shomna</h3>
+        <p class="temperature text-xl mb-2 text-gray-700"></p>
+        <p class="weather-condition text-gray-500"></p>
+        <img src="images/cloudy.png" class="weather-icon w-16 h-16" alt="Weather Icon">
+    </div>
+    <div class="city text-center mb-8 sm:w-1/2 lg:w-auto">
+        <h3 class="text-lg font-semibold mb-2">4. Eilat</h3>
+        <p class="temperature text-xl mb-2 text-gray-700"></p>
+        <p class="weather-condition text-gray-500"></p>
+        <img src="images/cloudy.png" class="weather-icon w-16 h-16" alt="Weather Icon">
+    </div>
+    <div class="city text-center mb-8 sm:w-1/2 lg:w-auto">
+        <h3 class="text-lg font-semibold mb-2">5. Jerusalem</h3>
+        <p class="temperature text-xl mb-2 text-gray-700"></p>
+        <p class="weather-condition text-gray-500"></p>
+        <img src="images/cloudy.png"class="weather-icon w-16 h-16" alt="Weather Icon">
+    </div>
+</div> -->
+
+
+
+<br>
+<br>
+<!-- end of weather system -->
+<!-- Top experiences section -->
+    <section class="container mx-auto py-8 px-4">
+    <h2 class="text-4xl font-bold mb-8 text-center">Top Experiences</h2>
+    <p class="text-2xl text-center mb-6">Discover the top experiences in Israel that will make your trip unforgettable.</p>
+    
+    <!-- Grid for photos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Photo 1 -->
+        
+        <!-- Photo 2 -->
+        <div class="relative">
+            <img src="images/deadsea.jpg" alt="Experience 1" class="w-full h-auto lg:h-48 object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                <p class="text-white text-lg font-semibold">Dead Sea</p>
+            </div>
+        </div>
+        <!-- Photo 3 -->
+        <div class="relative">
+            <img src="images/masada.jpg" alt="Experience 2" class="w-full h-auto lg:h-48 object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                <p class="text-white text-lg font-semibold">Masada</p>
+            </div>
+        </div>
+        <!-- Photo 4 -->
+        <div class="relative">
+            <img src="images/telavivbeach.jpg" alt="Experience 3" class="w-full h-auto lg:h-48 object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                <p class="text-white text-lg font-semibold">Tel Aviv Beaches</p>
+            </div>
+        </div>
+		<div class="relative">
+            <img src="images/oldcityjerusalem.jpg" alt="Experience 4" class="w-full h-auto lg:h-48 object-cover rounded-lg shadow-lg">
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition duration-300 opacity-0 hover:opacity-100">
+                <p class="text-white text-lg font-semibold">Old City of Jerusalem</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Full-Screen Styled HR -->
+<div class="container mx-auto px-4 py-8 text-center">
+    <hr class="border-b-2 border-gray-300 mx-0 w-full">
+</div>
+
+<!-- Practical Travel Advice Section -->
+<section class="container mx-auto py-8 px-4">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Practical Travel Advice</h2>
+        <p class="text-xl text-center max-w-3xl mx-auto mb-6">Whether you're a history enthusiast, a beach lover, or an adventure seeker, Israel has something for everyone. Here are some tips to make your journey unforgettable.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Tip 1 -->
+            <div class="px-4">
+                <h3 class="text-lg font-semibold mb-2">Best Time to Visit</h3>
+                <p>Spring (April and May) and autumn (September and October) are ideal for comfortable weather and smaller crowds.</p>
+            </div>
+            <!-- Tip 2 -->
+            <div class="px-4">
+                <h3 class="text-lg font-semibold mb-2">Getting Around</h3>
+                <p>Israel's efficient public transportation system makes it easy to explore. Consider renting a car for more remote destinations.</p>
+            </div>
+            <!-- Tip 3 -->
+            <div class="px-4">
+                <h3 class="text-lg font-semibold mb-2">Local Cuisine</h3>
+                <p>Don't miss out on traditional Israeli dishes like hummus, shakshuka, and falafel. Each region has its own specialties.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Full-Screen Styled HR -->
+<div class="container mx-auto px-4 py-8 text-center">
+    <hr class="border-b-2 border-gray-300 mx-0 w-full">
+</div>
+
+<!-- Israel's Cultural Experience Section -->
+<section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-8 text-center">Israel's Cultural Experiences</h2>
+        <p class="text-xl text-center max-w-4xl mx-auto mb-6">Beyond its historic landmarks, Israel offers a tapestry of cultural experiences. From the bustling markets of Tel Aviv to the serene landscapes of the Galilee, every corner of Israel tells a story of diversity and coexistence.</p>
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Cultural Spotlight 1 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+                <div class="h-64 overflow-hidden rounded-lg shadow-md mb-4 flex items-center justify-center">
+                    <img src="images/market.jpg" alt="Markets" class="min-w-full min-h-full object-cover">
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Vibrant Markets</h3>
+                <p>Explore local markets where traditions come alive, offering everything from handmade crafts to gourmet foods.</p>
+            </div>
+            <!-- Cultural Spotlight 2 -->
+            <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+                <div class="h-64 overflow-hidden rounded-lg shadow-md mb-4 flex items-center justify-center">
+                    <img src="images/festival.jpg" alt="Festivals" class="min-w-full min-h-full object-cover">
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Festivals and Events</h3>
+                <p>Participate in festivals that celebrate Israel's rich tapestry of cultures, music, and art throughout the year.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Full-Screen Styled HR -->
+<div class="container mx-auto px-4 py-8 text-center">
+    <hr class="border-b-2 border-gray-300 mx-0 w-full">
+</div>
+
+<!-- Testimonials Section -->
+<section class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">What Travelers Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Existing Testimonials -->
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"Visiting the Dead Sea was a surreal experience. Floating effortlessly made me feel completely at peace."</p>
+                <p class="mt-4 text-right font-semibold">- Alex Smith</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"The food tour in Jerusalem opened my eyes to the rich flavors of Israeli cuisine. Absolutely unforgettable!"</p>
+                <p class="mt-4 text-right font-semibold">- Jamie Doe</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"Exploring the ancient ruins of Masada at sunrise was an emotional and breathtaking moment I'll always cherish."</p>
+                <p class="mt-4 text-right font-semibold">- Casey Jordan</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"The vibrant street art in Tel Aviv is truly something to behold. It adds so much character to the city!"</p>
+                <p class="mt-4 text-right font-semibold">- Morgan Lee</p>
+            </div>
+            <!-- New Testimonials -->
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"Hiking in the Golan Heights was an adventure of a lifetime. The panoramic views are unmatched."</p>
+                <p class="mt-4 text-right font-semibold">- Taylor Kim</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow">
+                <p class="italic">"Snorkeling in Eilat gave me a glimpse into the colorful underwater world of the Red Sea. It was mesmerizing!"</p>
+                <p class="mt-4 text-right font-semibold">- Jordan Patel</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container mx-auto px-4 py-8 text-center">
+    <hr class="border-b-2 border-gray-300 mx-0 w-full">
+</div>
+<!-- Engagement CTA Section -->
+<section class="py-12 bg-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Plan Your Perfect Trip</h2>
+        <p class="mb-6 max-w-md mx-auto">As your journey through our site comes to a close, let's start planning your real adventure in Israel. Tailor your visit to match your dreams, from historical tours to relaxation by the Dead Sea.</p>
+        <div class="flex justify-center items-center gap-4 mb-8">
+            <a href="/custom-plans" class="bg-green-500 hover:bg-green-600 font-bold py-3 px-6 rounded-full transition duration-300">Create Your Trip</a>
+            <a href="/contact" class="bg-transparent border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold py-3 px-6 rounded-full transition duration-300">Contact Us</a>
+        </div>
+        <p class="text-gray-400">Or explore further in the links below.</p>
+    </div>
+</section>
+
+
+<footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">About Us</h2>
+                <p>Discover the best of Israel with curated travel guides, tips, and insights.</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Quick Links</h2>
+                <ul>
+                    <li><a href="/explore" class="hover:text-blue-400">Explore</a></li>
+                    <li><a href="/restaurants" class="hover:text-blue-400">Restaurants</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Where to Go</a></li>
+                    <li><a href="/thingstodo" class="hover:text-blue-400">Things to Do</a></li>
+                </ul>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Contact Us</h2>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +972 123 4567</p>
+            </div>
+            <!-- Social Media Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Follow Us</h2>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400">Facebook</a>
+                    <a href="#" class="hover:text-blue-400">Instagram</a>
+                    <a href="#" class="hover:text-blue-400">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-700 text-center py-4">
+        <p>&copy; 2024 Travel Israel. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

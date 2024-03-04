@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things To Do</title>
+    <!-- Add your stylesheet link here -->
+    <script src="thingstodojs.js"></script>
+
+		  <script src="https://cdn.tailwindcss.com"></script>
+	    <link href="styles.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header>
+        <img src="images/header.png" alt="Header Image" class="w-full">
+    </header>
+<nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="flex space-x-4">
+                    <!-- Navbar items -->
+                    <a href="index.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">HOME</a>
+                    <a href="restaurants.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">RESTAURANTS</a>
+                    <a href="#" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">WHERE TO GO</a>
+                    <a href="thingstodo.html" class="text-lg font-medium text-gray-600 hover:text-green-500 py-4 px-2">THINGS TO DO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-center mt-8">
+            <h1 class="text-4xl font-bold text-gray-800">Explore Nearby Places</h1>
+        </div>
+        <br>
+        <p class="text-gray-700 mb-5 text-xl">Click the button below to automatically find your current location. This feature helps you discover nearby places to visit, making it easier to explore your surroundings without the need for manual searches.</p>
+        <button onclick="getLocation()" class="py-2 px-4 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150 ease-in-out">
+            Show Nearby Attractions
+        </button>
+        <p id="location" class="mt-4 text-gray-700"></p>
+        <p class="mt-6 text-gray-700 text-lg">Prefer to search manually? Enter a city or village below to explore nearby attractions without using your location.</p>
+
+        <input type="text" id="cityInput" placeholder="Enter a city or village"
+            class="px-4 py-2 w-64 border rounded-md text-gray-700 focus:ring-blue-500 focus:border-blue-500" />
+            
+        <button id="searchButton" onclick="searchRestaurants()"
+            class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200">Search</button>
+            <div id="suggestionsBox" class="w-full mt-2 bg-white text-gray-700 border rounded-lg"></div>
+
+    </div>
+    <br>
+   
+    
+    <div id="attractionsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <!-- Dynamic content will be inserted here -->
+</div>
+
+
+
+    
+
+
+    <!-- Cities section -->
+      <section class="container mx-auto py-8 px-4">
+        <p class="text-2xl text-gray-700 mb-4 text-center">Explore Top Cities in Israel and Their Must-See Attractions</p>
+        <nav class="flex flex-wrap justify-center sm:space-x-6 lg:space-x-8">
+        <!-- Link to Haifa -->
+        <a href="#haifa" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Haifa
+        </a>
+        <!-- Link to Tel Aviv -->
+        <a href="#telaviv" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Tel Aviv
+        </a>
+        <!-- Link to Qiryat Shomna -->
+        <a href="#qiryatshomna" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Qiryat Shomna
+        </a>
+        <!-- Link to Eilat -->
+        <a href="#eilat" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Eilat
+        </a>
+        <!-- Link to Jerusalem -->
+        <a href="#jerusalem" class="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
+            <i class="fas fa-city mr-2"></i>
+            Jerusalem
+        </a>
+    </nav>
+</section>
+
+
+
+<button onclick="scrollToTop()" class="fixed bottom-8 right-8 w-12 h-12 rounded-full text-lg flex items-center justify-center bg-green-500 text-white hover:bg-green-600 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+    ↑
+</button>
+
+
+
+
+
+
+    <!-- Restaurants section -->
+    <section class="container mx-auto py-8 px-4">
+        <!-- Haifa Restaurants -->
+        <div id="haifa" class="mb-8">
+            <h3 class="text-2xl font-bold mb-2 text-center">Haifa</h3>
+            <h4 class="text-xl font-semibold">Key Attractions:</h4>
+            <p>Visit the stunning Baha'i Gardens, explore the German Colony, and enjoy panoramic views from Mount Carmel.</p>            <!-- List of restaurants in Haifa -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Restaurant 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Hai Park - Kiryat Motzkin</h3>
+
+                    <img src="images/parkhai.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">  
+Having fun all year round at Chai Park, a perfect experience for the whole family<br>
+An excellent opportunity to get to know together with the whole family the magical world of giant creatures that comes to life in the beautiful zoo in Israel - Chai Park Motzkin. A unique exhibition that blends perfectly with the amazing attractions in the park. 
+</p> 
+					<p class="text-gray-600 mb-2">Hai Park - Kiryat Motzkin opening hours<br>
+Summer (summer time):<br>
+- Sunday-Thursday on Saturday and holiday 09:00-17:00<br>
+- Friday and holiday evenings 09:00-15:00<br>
+Winter (winter time):<br>
+- Sunday-Thursday, Saturday and holiday 09:00 00-16:00<br>
+- Friday and holiday evenings 09:00-14:00<br>
+</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- Restaurant 2 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">HAIFA CABLE CARS</h3>
+
+                    <img src="images/cable.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">
+The Haifa Cable Cars, located at the tip of Haifa that juts out into the Mediterranean, are fabulous both as a quick method of transportation and as a tourist attraction. Climbing up from beside the Bat Galim Promenade all the way up to Stella Maris, the top of the Carmel ridge, the Haifa cable cars provide a view of Haifa and the bay that must be seen.</p> 
+
+
+					<p class="text-gray-600 mb-2">Opening Hours:<br>
+					Summer: 9am-8pm<br>
+Winter: 10am-6pm<br>
+</p><br><br>
+<br><br><br><br>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- Repeat the same structure for other restaurants -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Ninja City - a ninja complex for children</h3>
+
+                    <img src="images/ninja.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">Come be like real ninjas, in our perfect arena with a variety of challenging and fun facilities
+The ninja madness continues right here in Ninja City - here you will find the most extreme and fun experience with everything that the ninja world brings!
+
+Ninja City is a unique complex of its kind in Israel that covers an area of 700 square meters so that your children can enjoy as much space as possible and insanely hot extreme facilities.
+If your children act like ninjas let them do it in the most perfect complex in the north for this purpose, where they can Climb, jump, run and release adrenaline.
+</p> 
+					
+					<p class="text-gray-600 mb-2">Opening Hours:<br>Sunday - Thursday: 10:00-21:00<br>
+Friday: 10:00-18:00<br>
+Saturday: 10:00-21:00<br>
+</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- restaurant 3 -->
+				
+				<!-- restaurant 4 -->
+				
+				<!-- restaurant 5 -->
+				
+            </div>
+        </div>
+        <!-- Things to do in Tel Aviv  -->
+        <div id="telaviv" class="mb-8">
+            <h3 class="text-2xl font-bold mb-2 text-center">Tel Aviv</h3>
+            <h4 class="text-xl font-semibold">Key Attractions:</h4>
+            <p>Enjoy the bustling city life, beautiful beaches, and the historic Jaffa district.</p>            <!-- List of restaurants in Tel Aviv -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Restaurant 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">CINEMAX 360 - life in the movie</h3>
+
+                    <img src="images/CINEMAX.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">The experience is called: "Cinemax 360" - all the senses work! Active chairs that will move you in full synchronization and in full accordance with what is happening on the screen, wind and gentle splashes of water will refresh your face, and you will not stop laughing, getting excited, enjoying and being surprised! 
+The expression "living in a movie" becomes real together with the feeling that you are in the movie.
+The movies at CIMEMAX 360 are projected on a 360-degree screen with unique DOME technology for the first time in Israel, like at Universal Studio in the USA!
+There you will find 16 active seats (4 rows each with 4 seats) so you can enjoy the movie as much as possible.
+</p> 
+
+					<p class="text-gray-600 mb-2">Opening Hours: 19:00 - 00:00</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- Restaurant 2 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Amusement Park</h3>
+
+                    <img src="images/lonapark.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">Tel Aviv Amusement City Amusement Park awaits you with plenty of attractions and facilities for all ages
+ 
+Looking for a place where the whole family can have fun together? Or maybe you plan to hang out with friends from school/neighborhood during the vacation and want to find a suitable place for that? Whether your goal is to spend a few hours of fun and experience or take the pleasure to the extreme - Luna Park Tel Aviv is the perfect place for you! 
+</p> 
+					<p class="text-gray-600 mb-2">Opening Hours: <br>
+					• The opening hours and activities of the amusement park vary depending on the weather, holidays and vacations, so it is recommended to be updated in advance on the activity hours on the park's website.
+</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- restaurant 3 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">The park lake</h3>
+
+                    <img src="images/park2.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">The place is considered one of the largest urban parks in Israel and in the world and apart from nature where you can also meet a variety of water animals, poultry and birds.
+In the park you can enjoy the history of the place, magnificent archaeology, cultural and sports sites, hiking trails, manicured lawns, lots of shade and plenty of greenery.
+</p> 
+					<p class="text-gray-600 mb-2">Opening Hours: 9:00 AM - 10:00 PM</p>
+                    <br><br><br><br><br><br><br><div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- Restaurant 4 -->
+				
+				<!-- Restaurant 5 -->
+				
+				<!-- End of restaurants -->
+                <!-- Repeat the same structure for other restaurants -->
+            </div>
+        </div>
+        <!-- Qiryat Shomna Restaurants -->
+		<div id="qiryatshomna" class="mb-8">
+            <h3 class="text-2xl font-bold mb-2 text-center">Qiryat Shmona</h3>
+    <h4 class="text-xl font-semibold">Key Attractions:</h4>
+    <p>Discover the lush landscapes of the Hula Valley, enjoy outdoor adventures in the nearby nature reserves, and explore the historical sites.</p>
+                <!-- List of restaurants in Qiryat Shomna -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Restaurant 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Amigos</h3>
+
+                    <img src="images/Amigos.jpeg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">About:<br>
+Kosher Mehadrin restaurant, authentic atmosphere, rich terrace for a cup of coffee at the end of the meal Business for families, also large. Business for children, business for friends, business for couples. We specialize in over 20 years in a high quality meat section, also in wines! , Maintaining aesthetics, providing service from the heart. There are lots of different types of atmosphere.</p> 
+<br>
+					<p class="text-gray-600 mb-2">Opening Hours: 9:00 AM - 10:00 PM</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- Restaurant 2 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Maneki Neko</h3>
+
+                    <img src="images/BaguetteShlomi.jpeg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">About:<br> Here you’ll find the best Shawarma, Falafel,Schnitzel in the north. Have it in a pita, roll or baguette... or why not take a break and have it on a plate.😃
+</p> <br><br><br><br><br><br>
+					<p class="text-gray-600 mb-2">Opening Hours: 9:00 AM - 10:00 PM</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- restaurant 3 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Esterika</h3>
+
+                    <img src="images/Esterika.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">About:<br> Boutique restaurant. Special bread sandwiches, salads and more...
+</p> <br><br><br><br><br><br><br><br>
+					<p class="text-gray-600 mb-2">Opening Hours: 9:00 AM - 10:00 PM</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- Restaurant 4 -->
+				
+				<!-- Restaurant 5 -->
+				
+				<!-- End of things to do -->
+                <!-- Repeat the same structure for other restaurants -->
+            </div>
+        </div>
+		<!-- here for the forth city Eilat things to do-->
+		<div id="eilat" class="mb-8">
+            <h3 class="text-2xl font-bold mb-2 text-center">Eilat</h3>
+            <h4 class="text-xl font-semibold">Key Attractions:</h4>
+            <p>Experience world-class snorkeling and diving in the Red Sea, and enjoy the vibrant nightlife.</p>            <!-- List of things to do in Eilat -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- things to do 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Atlantis extreme marine experience</h3>
+
+                    <img src="images/atlantes.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">Looking for a perfect attraction in the sea of Eilat?
+Get to know Atlantis, the place that allows you to enjoy three wonderful attractions in the Red Sea and all this with one super affordable ticket. 
+<br>Prices
+Detail and information about Atlantis extreme marine experience
+ticket price for the three attractions at a special price of NIS 115!
+</p> 
+					<p class="text-gray-600 mb-2">Opening Hours:<br>
+					Sunday: 08:00-19:00<br>
+Monday: 08:00-19:00<br>
+Tuesday: 08:00-19:00<br>
+Wednesday: 08:00-19:00<br>
+Thursday: 08:00-19:00<br>
+Friday: 08:00 -17:00<br>
+Saturday: 08:00-19:00
+</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- things to do 2 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Great Dave - perfect diving experience</h3>
+
+                    <img src="images/dive.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">All the information about Achla Dave - a perfect diving experience
+The end has come to your searches and walking around Eilat, Achla Dave is the hottest place to be
+for those who have always dreamed and for those who have already experienced and want a little more Achla Dave's diving club opens its doors and brings you to the world of water
+</p>
+					<p class="text-gray-600 mb-2">Opening Hours:<br>
+					Sundays, Thursdays between the hours of 09:00-17:00<br>
+Fridays between the hours of 09:00-17:00<br>
+Saturdays between the hours of 09:00-17:00
+</p><br><br>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- things to do 3 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Kisoski Beach - Parachute for a crazy experience</h3>
+
+                    <img src="images/crazyparachute.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">About:<br>All the information about Kisoski Beach - Parachute for a crazy experience
+To have fun in the Red Sea together with all the attractions of Kisouski Water Sports.<br>
+we would like to invite you to one of the many attractions that the place offers:
+Paraglider - a single or double paraglider which is towed by a boat from which you will take off and land. An opportunity to soar 70 meters above sea level. Those who try this special experience will be able to enjoy the magical view of Eilat. 
+
+</p> 
+					<p class="text-gray-600 mb-2">Opening Hours: Sunday - Thursday 9:00 AM - 10:00 PM</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				
+				
+				<!-- End of restaurants -->
+                <!-- Repeat the same structure for other restaurants -->
+            </div>
+        </div>
+		<!-- end of Eilat restaurants -->
+		
+		<!-- The last city things to do in Jerusalem -->
+		<div id="jerusalem" class="mb-8">
+            <h3 class="text-2xl font-bold mb-2 text-center">Jerusalem</h3>
+            <h4 class="text-xl font-semibold">Key Attractions:</h4>
+            <p>Discover the ancient beauty of the Old City, the Western Wall, and the vibrant Mahane Yehuda Market.</p>
+            <!-- List of restaurants in Eilat -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Restaurant 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Experience world art inside the Israel Museum</h3>
+
+                    <img src="images/museum2.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">What will you find in the Israel Museum?
+In the Israel Museum you can see about half a million art objects from different cultures in the world. It is one of the largest museums in the Middle East and has collections in the fields of archaeology, ethnography, Judaica, Israeli art, art from different parts of the world and exhibitions that change from time to time. The museum has seven wings, some of which are closed and some are outside.
+</p> 
+					<p class="text-gray-600 mb-2">Israel Museum opening hours<br>
+Sundays, Mondays, Wednesdays, Thursdays, hours: 10:00-17:00
+Tuesdays, hours: 16:00-21:00
+Fridays, hours: 14:00-10:00
+Saturdays, hours: 10:00 -17:00
+</p><br><br>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+                <!-- Restaurant 2 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Rider Emek Hula hikers in the Jerusalem mountains</h3>
+
+                    <img src="images/rider2.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">We offer you:<br> 
+•	Couples trips<br>
+•	family trips<br>
+•	Excellent for small groups and productions in the heart of the magical mountains of Jerusalem<br>
+We also offer a unique Easy Rider riding experience on new, short and long routes.<br>
+We will arrive at : Beit Zeit Dam, the Steph, Beit Nakofa, Kiryat Inavim, Ma'ale Ha'Hamme (the trips are suitable for all ages)
+</p>
+					<p class="text-gray-600 mb-2">
+					Rider Emek Hula hikers in the Jerusalem mountains opening hours<br>
+Sunday to Thursday, during the hours: 08:00-22:00<br>
+Friday: 08:00 until the start of Shabbat<br>
+Saturday: no work
+</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				<!-- restaurant 3 -->
+				<div class="bg-white rounded-lg shadow-lg p-6">
+				                    <h3 class="text-lg font-semibold mb-2">Rockefeller Museum of Archaeology</h3>
+
+                    <img src="images/museum.jpg" alt="Restaurant 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                       <p class="text-gray-600 mb-4">Come and get a glimpse of the beginning of the last century, with a variety of amazing and unique exhibits and objects waiting for you at the Rockefeller Museum of Archaeology.
+Most of the exhibits in the museum are discoveries made during archaeological excavations at the beginning of the 20th century, and reveal the history of man in Israel during the various periods.
+</p> 
+					<p class="text-gray-600 mb-2">Opening Hours:<br>
+					Sundays, Mondays, Wednesdays and Thursdays: 10:00-15:00<br>
+Saturdays: 10:00-14:00<br>
+Tuesdays, Fridays and holiday eves: closed<br>
+</p><br><br><br>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Facebook icon -->
+						<img src="images/facebook.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Waze icon -->
+						<img src="images/waze.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700">
+                            <!-- Website icon -->
+						<img src="images/phone-call.png" alt="Facebook" class="h-6 w-6">
+
+                        </a>
+                    </div>
+                </div>
+				
+				
+				<!-- End of restaurants -->
+                <!-- Repeat the same structure for other restaurants -->
+            </div>
+        </div>
+        <!-- Repeat the same structure for other cities -->
+    </section>
+    <!-- Main content, JavaScript functionality, etc. goes here -->
+<footer class="bg-gray-800 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">About Us</h2>
+                <p>Discover the best of Israel with curated travel guides, tips, and insights.</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Quick Links</h2>
+                <ul>
+                    <li><a href="/explore" class="hover:text-blue-400">Explore</a></li>
+                    <li><a href="/restaurants" class="hover:text-blue-400">Restaurants</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Where to Go</a></li>
+                    <li><a href="/thingstodo" class="hover:text-blue-400">Things to Do</a></li>
+                </ul>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Contact Us</h2>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +972 123 4567</p>
+            </div>
+            <!-- Social Media Links -->
+            <div>
+                <h2 class="font-bold text-lg mb-4">Follow Us</h2>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400">Facebook</a>
+                    <a href="#" class="hover:text-blue-400">Instagram</a>
+                    <a href="#" class="hover:text-blue-400">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-700 text-center py-4">
+        <p>&copy; 2024 Travel Israel. All rights reserved.</p>
+    </div>
+</footer>
+    <!-- Script tag for JavaScript -->
+    <script src="attracationscard.js"></script>
+
+</body>
+</html>
